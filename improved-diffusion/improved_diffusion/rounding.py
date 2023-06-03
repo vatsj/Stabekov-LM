@@ -1,6 +1,6 @@
 import torch
 # bert results
-from transformers import AutoModelForCausalLM, AutoConfig, AutoTokenizer, default_data_collator
+from transformers import AutoModelForCausalLM, AutoConfig, AutoTokenizer, default_data_collator, BertForMaskedLM
 import sys, yaml, os
 # print( os.path.join(sys.path[0], '../../transformers/examples/pytorch/language-modeling'))
 # sys.path.insert(0, 'diffusion_lm/transformers/examples/pytorch/language-modeling')
@@ -8,6 +8,21 @@ import sys, yaml, os
 # from custom_trainer import GPT2LMHeadModelCompress, BERTModelCompress, AutoEncoderWithNoise
 
 def load_models(modality, mode, model_name_or_path, emb_dim, file, extra_args=None):
+
+    # bert!
+    if mode == 'bert':
+
+        # config
+        config = AutoConfig.from_pretrained(MODEL_NAME)
+        config.output_hidden_states = True
+        
+        # sets config in model 
+        MODEL_NAME = "bert-base-uncased"
+        model = BertForMaskedLM.from_pretrained(MODEL_NAME, config=config)
+
+        tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+
+        return model, tokenizer
 
     if mode in ['random', 'random1', 'random_up_proj', 'glove']:
         if modality == 'synth':
@@ -50,6 +65,12 @@ def load_models(modality, mode, model_name_or_path, emb_dim, file, extra_args=No
 
 
 def load_tokenizer(modality, mode, model_name_or_path):
+
+    # bert!
+    if mode == 'bert':
+        tokenizer = AutoTokenizer.from_pretrained('bert-base-uncased')
+        return tokenizer
+    
     if mode in ['random', 'random_up_proj', 'glove']:
         if modality == 'synth':
             print(model_name_or_path, 'deciding what to load::: ')
@@ -75,8 +96,21 @@ def load_tokenizer(modality, mode, model_name_or_path):
 
     return tokenizer
 
+
 def rounding_func(mode, text_emb_lst, model, tokenizer, emb_scale_factor=1.0):
     decoded_out_lst = []
+
+    # bert!
+    if mode == 'bert':
+        decoded_out_lst = []
+        with torch.no_grad():
+            for text_emb in text_emb_lst:
+                text_emb = torch.tensor(text_emb)
+                logits = model.cls(text_emb)
+                decoded_out_lst.append(tokenizer.decode(logits.argmax(axis=-1)))
+        return decoded_out_lst
+
+
     if mode in ['random', 'random_up_proj', 'glove']:
         down_proj_emb = model.weight  # input_embs
         down_proj_emb2 = None
