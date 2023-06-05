@@ -16,7 +16,7 @@ from itertools import chain
 
 
 def load_data_text(
-    *, data_dir, batch_size, image_size, class_cond=False, deterministic=False, data_args=None, 
+    *, data_dir, batch_size, image_size, class_cond=False, deterministic=False, data_args=None,
         task_mode='roc', model=None, padding_mode='block', split='train', load_vocab=None,
 ):
     """
@@ -266,6 +266,9 @@ def helper_tokenize_encode(sentence_lst, vocab_dict, model, seqlen, data_args, p
         for input_ids in group_lst['word_ids']:
             if data_args.experiment.startswith('random'):
                 hidden_state = model(torch.tensor(input_ids))
+            elif data_args.experiment.startswith('bert'):
+                input_ids2 = torch.tensor(input_ids).to(model.device)
+                hidden_state = model.bert(input_ids2)
             elif data_args.experiment == 'gpt2_pre_compress':
                 input_ids2 = torch.tensor(input_ids).to(model.device)
                 input_embs = model.transformer.wte(input_ids2)  # input_embs
@@ -604,7 +607,7 @@ def get_corpus_rocstory(data_args, model, image_size, padding_mode='block',
     elif data_args.experiment_mode == 'conditional_gen':
         result_train_lst = helper_tokenize_encode_cond(sentence_lst, vocab_dict, model, image_size ** 2, data_args)
     return {'train': result_train_lst}, model
-       
+
 
 def write_e2e_corr(prompt_lst, file_dict, corr_path):
     print(len(prompt_lst))
@@ -791,7 +794,7 @@ class TextDataset(Dataset):
                 arr = arr.reshape(1, -1) - self.eigen_transform['mean']
                 arr = arr @ self.eigen_transform['map']
                 arr = arr.reshape(old_shape)
-                
+
             if hasattr(self.data_args, 'noise_level') and self.data_args.noise_level > 0:
                 # print(arr.dtype)
                 # print(self.data_args.noise_level, 'using the noise level.')
@@ -840,8 +843,14 @@ class TextDataset_NoCache(Dataset):
         with torch.no_grad():
             input_ids = self.text_datasets['train'][idx]['input_ids']
             model = self.model_emb
+
+            if self.data_args.experiment.startswith('bert'):
+                input_ids2 = torch.tensor(input_ids).to(model.device)
+                hidden_state = model.bert(input_ids2)
+
             if self.data_args.experiment.startswith('random'):
                 hidden_state = model(torch.tensor(input_ids))
+
             elif self.data_args.experiment == 'gpt2_pre_compress':
                 input_ids2 = torch.tensor(input_ids).to(model.device)
                 input_embs = model.transformer.wte(input_ids2)  # input_embs
