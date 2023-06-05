@@ -15,10 +15,11 @@ def load_models(modality, mode, model_name_or_path, emb_dim, file, extra_args=No
         # config
         config = AutoConfig.from_pretrained(MODEL_NAME)
         config.output_hidden_states = True
-        
-        # sets config in model 
+
+        # sets config in model
         MODEL_NAME = "bert-base-uncased"
         model = BertForMaskedLM.from_pretrained(MODEL_NAME, config=config)
+        model = model.bert
 
         tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 
@@ -70,7 +71,7 @@ def load_tokenizer(modality, mode, model_name_or_path):
     if mode == 'bert':
         tokenizer = AutoTokenizer.from_pretrained('bert-base-uncased')
         return tokenizer
-    
+
     if mode in ['random', 'random_up_proj', 'glove']:
         if modality == 'synth':
             print(model_name_or_path, 'deciding what to load::: ')
@@ -148,4 +149,3 @@ def rounding_func(mode, text_emb_lst, model, tokenizer, emb_scale_factor=1.0):
             decoded_out_lst.append(decoded_out)
 
     return decoded_out_lst
-
