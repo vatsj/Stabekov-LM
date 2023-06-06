@@ -267,6 +267,7 @@ def helper_tokenize_encode(sentence_lst, vocab_dict, model, seqlen, data_args, p
             if data_args.experiment.startswith('random'):
                 hidden_state = model(torch.tensor(input_ids))
             elif data_args.experiment.startswith('bert'):
+                print('bert1')
                 input_ids2 = torch.tensor(input_ids).to(model.device)
                 hidden_state = model.bert(input_ids2)
             elif data_args.experiment == 'gpt2_pre_compress':
@@ -845,11 +846,13 @@ class TextDataset_NoCache(Dataset):
             model = self.model_emb
 
             if self.data_args.experiment.startswith('bert'):
+                print('bert2')
                 input_ids2 = torch.tensor(input_ids).to(model.device)
                 hidden_state = model.bert(input_ids2)
 
             if self.data_args.experiment.startswith('random'):
                 hidden_state = model(torch.tensor(input_ids))
+                
 
             elif self.data_args.experiment == 'gpt2_pre_compress':
                 input_ids2 = torch.tensor(input_ids).to(model.device)
@@ -875,6 +878,7 @@ class TextDataset_NoCache(Dataset):
                 #     out_dict["y"] = np.array(self.local_classes[idx], dtype=np.int64)
                 # print(out_dict.keys())
                 return np.transpose(arr, [2, 0, 1]), out_dict
+
             elif self.model_arch == '1d-unet':
                 arr = np.array(hidden_state,
                                dtype=np.float32)  # seqlen, dim

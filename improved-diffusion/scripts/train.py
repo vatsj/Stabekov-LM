@@ -1,10 +1,13 @@
 """
 Train a diffusion model on images.
 """
-
 import argparse
-import json, torch, os
+import json
+import os
 import numpy as np
+import torch
+
+
 from improved_diffusion import dist_util, logger
 from improved_diffusion.image_datasets import load_data
 from improved_diffusion.text_datasets import load_data_text
@@ -26,7 +29,7 @@ import wandb
 
 def main():
     args = create_argparser().parse_args()
-    set_seed(args.seed) 
+    set_seed(args.seed)
     dist_util.setup_dist() # DEBUG **
     logger.configure()
 
@@ -89,8 +92,12 @@ def main():
                                         'ema_0.9999_200000.pt', map_location='cpu')['word_embedding.weight']
             model22.weight = model22_weight
             model22.weight.requires_grad=False
+        elif args.experiment == 'bert':
+            model22, _ = load_models(args.modality, args.experiment, args.model_name_or_path, args.in_channel,
+                                            args.checkpoint_path, extra_args=args)
         else:
             model22 = None
+
 
         data = load_data_text(
             data_dir=args.data_dir,
@@ -103,6 +110,7 @@ def main():
             load_vocab=rev_tokenizer,
             model=model22,
         )
+
         next(data)
         model2, tokenizer = load_models(args.modality, args.experiment, args.model_name_or_path, args.in_channel,
                                         args.checkpoint_path, extra_args=args)

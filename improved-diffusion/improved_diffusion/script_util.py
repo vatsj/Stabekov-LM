@@ -14,7 +14,7 @@ def model_and_diffusion_defaults():
     Defaults for image training.
     """
     return dict(
-        image_size=64,
+        image_size=128,
         num_channels=128,
         num_res_blocks=2,
         num_heads=4,
@@ -38,7 +38,7 @@ def model_and_diffusion_defaults():
         out_channel=8,
         training_mode='emb',
         vocab_size=66,
-        config_name='bert-base-uncased',
+        config_name='bert-base-uncased', #make into bert tiny?
         experiment_mode='lm',
         logits_mode=1,
     )
@@ -239,6 +239,8 @@ def create_model(
     elif model_arch == 'transformer':
         if image_size == 256:
             channel_mult = (1, 1, 2, 2, 4, 4)
+        elif image_size == 128:
+            channel_mult = (1, 1, 2, 2, 4)
         elif image_size == 64:
             channel_mult = (1, 2, 3, 4)
         elif image_size == 32:

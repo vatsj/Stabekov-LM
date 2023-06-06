@@ -10,14 +10,15 @@ import sys, yaml, os
 def load_models(modality, mode, model_name_or_path, emb_dim, file, extra_args=None):
 
     # bert!
-    if mode == 'bert':
 
+    if mode == 'bert':
+        print('bert loading')
         # config
         config = AutoConfig.from_pretrained(MODEL_NAME)
         config.output_hidden_states = True
 
         # sets config in model
-        MODEL_NAME = "bert-base-uncased"
+        MODEL_NAME = "prajjwal1/bert-tiny"
         model = BertForMaskedLM.from_pretrained(MODEL_NAME, config=config)
         model = model.bert
 
@@ -69,6 +70,7 @@ def load_tokenizer(modality, mode, model_name_or_path):
 
     # bert!
     if mode == 'bert':
+        print('bert tok')
         tokenizer = AutoTokenizer.from_pretrained('bert-base-uncased')
         return tokenizer
 
@@ -103,6 +105,7 @@ def rounding_func(mode, text_emb_lst, model, tokenizer, emb_scale_factor=1.0):
 
     # bert!
     if mode == 'bert':
+        print('bert_rounding')
         decoded_out_lst = []
         with torch.no_grad():
             for text_emb in text_emb_lst:
