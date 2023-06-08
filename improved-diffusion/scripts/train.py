@@ -38,6 +38,7 @@ def main():
     model, diffusion = create_model_and_diffusion(
         **args_to_dict(args, model_and_diffusion_defaults().keys())
     )
+
     model.to(dist_util.dev()) #  DEBUG **
     # model.cuda() #  DEBUG **
 
@@ -49,7 +50,8 @@ def main():
     logger.log(f'saving the hyperparameters to {args.checkpoint_path}/training_args.json')
     with open(f'{args.checkpoint_path}/training_args.json', 'w') as f:
         json.dump(args.__dict__, f, indent=2)
-
+    
+    print('ARGS ARGS ARGS', args)
     wandb.init(
         project=os.getenv("WANDB_PROJECT", "diffusion_lm"),
         name=args.checkpoint_path,
@@ -76,7 +78,7 @@ def main():
             tokenizer = load_tokenizer(args.modality, args.experiment, 'predictability/diffusion_models_v7/diff_roc_pad_rand16_transformer_lr0.0001_0.0_2000_sqrt_Lsimple_h128_s2_d0.1_sd108_xstart')
             rev_tokenizer = {v: k for k, v in tokenizer.items()}
             print(len(rev_tokenizer), 'loading from tokenizer. ')
-        elif args.use_bert_tokenizer == 'yes':
+        elif True:# args.use_bert_tokenizer == 'yes':
             rev_tokenizer = AutoTokenizer.from_pretrained('bert-base-uncased')
         else:
             rev_tokenizer = None
@@ -92,12 +94,13 @@ def main():
                                         'ema_0.9999_200000.pt', map_location='cpu')['word_embedding.weight']
             model22.weight = model22_weight
             model22.weight.requires_grad=False
-        elif args.experiment == 'bert':
-            model22, _ = load_models(args.modality, args.experiment, args.model_name_or_path, args.in_channel,
+        elif True: #args.experiment == 'bert':
+            model22, _ = load_models(args.modality, 'bert', args.model_name_or_path, args.in_channel,
                                             args.checkpoint_path, extra_args=args)
         else:
             model22 = None
 
+        print(model22)
 
         data = load_data_text(
             data_dir=args.data_dir,
@@ -105,7 +108,7 @@ def main():
             image_size=args.image_size,
             class_cond=args.class_cond,
             data_args = args,
-            task_mode=args.modality,
+            task_mode='bert',#args.modality,
             padding_mode=args.padding_mode, #block, pad
             load_vocab=rev_tokenizer,
             model=model22,

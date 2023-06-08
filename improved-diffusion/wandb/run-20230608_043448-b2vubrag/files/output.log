@@ -1,0 +1,11 @@
+creating data loader...
+load data **************************************************
+hello loading text data.
+Traceback (most recent call last):
+  File "scripts/train.py", line 216, in <module>
+    main()
+  File "scripts/train.py", line 114, in main
+    next(data)
+  File "/home/ubuntu/Diffusion-LM/improved-diffusion/improved_diffusion/text_datasets.py", line 91, in load_data_text
+    training_data,
+UnboundLocalError: local variable 'training_data' referenced before assignment

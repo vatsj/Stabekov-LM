@@ -1,0 +1,23 @@
+creating data loader...
+load data **************************************************
+loading from diffusion_models/diff_bert_pad_rand128_transformer_lr0.0001_0.0_2000_sqrt_Lsimple_h128_s2_d0.1_sd101_xstart_e2e/vocab.json
+11043
+Embedding(11043, 128)
+hello loading text data.
+Embedding(11043, 128)
+Namespace(attention_resolutions='16,8', batch_size=64, cache_mode='no', checkpoint_path='diffusion_models/diff_bert_pad_rand128_transformer_lr0.0001_0.0_2000_sqrt_Lsimple_h128_s2_d0.1_sd101_xstart_e2e', class_cond=False, commonGen_train='diffusion_lm/common-gen/commongen_data', config='diffusion_lm/synthetic_data/configs/emnlp2020/experiments/difflm_seed0_m3_k128_trainc20000.yaml', config_name='bert-base-uncased', data_dir='', dataset_config_name='wikitext-2-raw-v1', dataset_name='wikitext', diffusion_steps=2000, dropout=0.1, e2e_train='e2e_data', ema_rate='0.9999', emb_scale_factor=1.0, eval_interval=2000, experiment='random', experiment_mode='lm', fp16_scale_growth=0.001, gradient_clipping=-1.0, image_size=8, in_channel=128, learn_sigma=False, log_interval=50, logits_mode=1, lr=0.0001, lr_anneal_steps=400000, microbatch=-1, modality='bert', model_arch='transformer', model_name_or_path='predictability/diff_models/compress_e=5_b=60_m=gpt2_wikitext-103-raw-v1_None', noise_level=0.0, noise_schedule='sqrt', num_channels=128, num_heads=4, num_heads_upsample=-1, num_res_blocks=2, out_channel=128, padding_mode='pad', predict_xstart=True, preprocessing_num_workers=1, rescale_learned_sigmas=True, rescale_timesteps=True, resume_checkpoint='', roc_train='../datasets/ROCstory', save_interval=50000, schedule_sampler='uniform', seed=101, sigma_small=False, timestep_respacing='', training_mode='bert', use_bert_tokenizer='no', use_checkpoint=False, use_fp16=False, use_kl=False, use_scale_shift_norm=True, vocab_size=11043, weight_decay=0.0, wiki_train='diffusion_lm/simple_wiki/data.v1.split/simple.training.txt', yelp_train='diffusion_lm/yelpnlg-resources/yelpnlg-corpus')
+**task_mode** bert
+loading initialized random embeddings.
+Traceback (most recent call last):
+  File "scripts/train.py", line 219, in <module>
+    main()
+  File "scripts/train.py", line 117, in main
+    next(data)
+  File "/home/ubuntu/Stabekov-LM/improved-diffusion/improved_diffusion/text_datasets.py", line 48, in load_data_text
+    training_data, model = get_corpus_rocstory(data_args, model, image_size,
+TypeError: cannot unpack non-iterable NoneType object
+IN GET CORPUS ROCSTORY POG POG POG Namespace(attention_resolutions='16,8', batch_size=64, cache_mode='no', checkpoint_path='diffusion_models/diff_bert_pad_rand128_transformer_lr0.0001_0.0_2000_sqrt_Lsimple_h128_s2_d0.1_sd101_xstart_e2e', class_cond=False, commonGen_train='diffusion_lm/common-gen/commongen_data', config='diffusion_lm/synthetic_data/configs/emnlp2020/experiments/difflm_seed0_m3_k128_trainc20000.yaml', config_name='bert-base-uncased', data_dir='', dataset_config_name='wikitext-2-raw-v1', dataset_name='wikitext', diffusion_steps=2000, dropout=0.1, e2e_train='e2e_data', ema_rate='0.9999', emb_scale_factor=1.0, eval_interval=2000, experiment='random', experiment_mode='lm', fp16_scale_growth=0.001, gradient_clipping=-1.0, image_size=8, in_channel=128, learn_sigma=False, log_interval=50, logits_mode=1, lr=0.0001, lr_anneal_steps=400000, microbatch=-1, modality='bert', model_arch='transformer', model_name_or_path='predictability/diff_models/compress_e=5_b=60_m=gpt2_wikitext-103-raw-v1_None', noise_level=0.0, noise_schedule='sqrt', num_channels=128, num_heads=4, num_heads_upsample=-1, num_res_blocks=2, out_channel=128, padding_mode='pad', predict_xstart=True, preprocessing_num_workers=1, rescale_learned_sigmas=True, rescale_timesteps=True, resume_checkpoint='', roc_train='../datasets/ROCstory', save_interval=50000, schedule_sampler='uniform', seed=101, sigma_small=False, timestep_respacing='', training_mode='bert', use_bert_tokenizer='no', use_checkpoint=False, use_fp16=False, use_kl=False, use_scale_shift_norm=True, vocab_size=11043, weight_decay=0.0, wiki_train='diffusion_lm/simple_wiki/data.v1.split/simple.training.txt', yelp_train='diffusion_lm/yelpnlg-resources/yelpnlg-corpus')
+Embedding(11043, 128)
+loading dataset from ROCStory
+loading from ../datasets/ROCstory
+loading form the TRAIN set

@@ -1,0 +1,182 @@
+2023-06-08 05:03:44,121 INFO    StreamThr :23040 [internal.py:wandb_internal():86] W&B internal server running at pid: 23040, started at: 2023-06-08 05:03:44.120613
+2023-06-08 05:03:44,122 DEBUG   HandlerThread:23040 [handler.py:handle_request():144] handle_request: status
+2023-06-08 05:03:44,123 INFO    WriterThread:23040 [datastore.py:open_for_write():85] open: /home/ubuntu/Stabekov-LM/improved-diffusion/wandb/run-20230608_050344-h30pmvf0/run-h30pmvf0.wandb
+2023-06-08 05:03:44,125 DEBUG   SenderThread:23040 [sender.py:send():369] send: header
+2023-06-08 05:03:44,149 DEBUG   SenderThread:23040 [sender.py:send():369] send: run
+2023-06-08 05:03:44,390 INFO    SenderThread:23040 [dir_watcher.py:__init__():211] watching files in: /home/ubuntu/Stabekov-LM/improved-diffusion/wandb/run-20230608_050344-h30pmvf0/files
+2023-06-08 05:03:44,390 INFO    SenderThread:23040 [sender.py:_start_run_threads():1100] run started: h30pmvf0 with start time 1686200624.120177
+2023-06-08 05:03:44,390 DEBUG   SenderThread:23040 [sender.py:send_request():396] send_request: summary_record
+2023-06-08 05:03:44,391 INFO    SenderThread:23040 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-08 05:03:44,397 DEBUG   HandlerThread:23040 [handler.py:handle_request():144] handle_request: check_version
+2023-06-08 05:03:44,397 DEBUG   SenderThread:23040 [sender.py:send_request():396] send_request: check_version
+2023-06-08 05:03:44,465 DEBUG   HandlerThread:23040 [handler.py:handle_request():144] handle_request: run_start
+2023-06-08 05:03:44,474 DEBUG   HandlerThread:23040 [system_info.py:__init__():31] System info init
+2023-06-08 05:03:44,474 DEBUG   HandlerThread:23040 [system_info.py:__init__():46] System info init done
+2023-06-08 05:03:44,474 INFO    HandlerThread:23040 [system_monitor.py:start():181] Starting system monitor
+2023-06-08 05:03:44,474 INFO    SystemMonitor:23040 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-06-08 05:03:44,474 INFO    HandlerThread:23040 [system_monitor.py:probe():201] Collecting system info
+2023-06-08 05:03:44,475 INFO    SystemMonitor:23040 [interfaces.py:start():190] Started cpu monitoring
+2023-06-08 05:03:44,475 INFO    SystemMonitor:23040 [interfaces.py:start():190] Started disk monitoring
+2023-06-08 05:03:44,476 INFO    SystemMonitor:23040 [interfaces.py:start():190] Started gpu monitoring
+2023-06-08 05:03:44,477 INFO    SystemMonitor:23040 [interfaces.py:start():190] Started memory monitoring
+2023-06-08 05:03:44,477 INFO    SystemMonitor:23040 [interfaces.py:start():190] Started network monitoring
+2023-06-08 05:03:44,497 DEBUG   HandlerThread:23040 [system_info.py:probe():195] Probing system
+2023-06-08 05:03:44,503 DEBUG   HandlerThread:23040 [system_info.py:_probe_git():180] Probing git
+2023-06-08 05:03:44,514 DEBUG   HandlerThread:23040 [system_info.py:_probe_git():188] Probing git done
+2023-06-08 05:03:44,515 DEBUG   HandlerThread:23040 [system_info.py:probe():240] Probing system done
+2023-06-08 05:03:44,515 DEBUG   HandlerThread:23040 [system_monitor.py:probe():210] {'os': 'Linux-5.15.0-1036-aws-x86_64-with-glibc2.10', 'python': '3.8.16', 'heartbeatAt': '2023-06-08T05:03:44.497878', 'startedAt': '2023-06-08T05:03:44.113815', 'docker': None, 'cuda': None, 'args': ('--checkpoint_path', 'diffusion_models/diff_bert_pad_rand128_transformer_lr0.0001_0.0_2000_sqrt_Lsimple_h128_s2_d0.1_sd101_xstart_e2e', '--model_arch', 'transformer', '--modality', 'bert', '--save_interval', '50000', '--lr', '0.0001', '--batch_size', '64', '--diffusion_steps', '2000', '--noise_schedule', 'sqrt', '--use_kl', 'False', '--learn_sigma', 'False', '--image_size', '8', '--num_channels', '128', '--seed', '101', '--dropout', '0.1', '--in_channel', '128', '--out_channel', '128', '--padding_mode', 'pad', '--experiment', 'random', '--lr_anneal_steps', '400000', '--weight_decay', '0.0', '--num_res_blocks', '2', '--predict_xstart', 'True', '--training_mode', 'bert', '--vocab_size', '11043', '--roc_train', '../datasets/ROCstory'), 'state': 'running', 'program': 'scripts/train.py', 'codePath': 'improved-diffusion/scripts/train.py', 'git': {'remote': 'https://github.com/vatsj/Stabekov-LM.git', 'commit': '6e840e315550421c6d9519b62685c7f579a5d789'}, 'email': None, 'root': '/home/ubuntu/Stabekov-LM', 'host': 'ip-172-31-11-100', 'username': 'ubuntu', 'executable': '/opt/conda/envs/golden/bin/python', 'cpu_count': 2, 'cpu_count_logical': 4, 'cpu_freq': {'current': 2800.011, 'min': 0.0, 'max': 0.0}, 'cpu_freq_per_core': [{'current': 3099.89, 'min': 0.0, 'max': 0.0}, {'current': 2499.998, 'min': 0.0, 'max': 0.0}, {'current': 3100.158, 'min': 0.0, 'max': 0.0}, {'current': 2499.998, 'min': 0.0, 'max': 0.0}], 'disk': {'total': 43.54772186279297, 'used': 43.220489501953125}, 'gpu': 'Tesla T4', 'gpu_count': 1, 'gpu_devices': [{'name': 'Tesla T4', 'memory_total': 16106127360}], 'memory': {'total': 15.337413787841797}}
+2023-06-08 05:03:44,515 INFO    HandlerThread:23040 [system_monitor.py:probe():211] Finished collecting system info
+2023-06-08 05:03:44,515 INFO    HandlerThread:23040 [system_monitor.py:probe():214] Publishing system info
+2023-06-08 05:03:44,515 DEBUG   HandlerThread:23040 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-06-08 05:03:44,515 DEBUG   HandlerThread:23040 [system_info.py:_save_pip():67] Saving pip packages done
+2023-06-08 05:03:44,515 DEBUG   HandlerThread:23040 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-06-08 05:03:45,392 INFO    Thread-12 :23040 [dir_watcher.py:_on_file_created():272] file/dir created: /home/ubuntu/Stabekov-LM/improved-diffusion/wandb/run-20230608_050344-h30pmvf0/files/wandb-summary.json
+2023-06-08 05:03:45,392 INFO    Thread-12 :23040 [dir_watcher.py:_on_file_created():272] file/dir created: /home/ubuntu/Stabekov-LM/improved-diffusion/wandb/run-20230608_050344-h30pmvf0/files/requirements.txt
+2023-06-08 05:03:45,393 INFO    Thread-12 :23040 [dir_watcher.py:_on_file_created():272] file/dir created: /home/ubuntu/Stabekov-LM/improved-diffusion/wandb/run-20230608_050344-h30pmvf0/files/conda-environment.yaml
+2023-06-08 05:03:46,369 DEBUG   HandlerThread:23040 [system_info.py:_save_conda():86] Saving conda packages done
+2023-06-08 05:03:46,369 INFO    HandlerThread:23040 [system_monitor.py:probe():216] Finished publishing system info
+2023-06-08 05:03:46,372 DEBUG   SenderThread:23040 [sender.py:send():369] send: files
+2023-06-08 05:03:46,372 INFO    SenderThread:23040 [sender.py:_save_file():1354] saving file wandb-metadata.json with policy now
+2023-06-08 05:03:46,378 DEBUG   SenderThread:23040 [sender.py:send():369] send: telemetry
+2023-06-08 05:03:46,387 DEBUG   SenderThread:23040 [sender.py:send():369] send: config
+2023-06-08 05:03:46,387 DEBUG   HandlerThread:23040 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-08 05:03:46,388 DEBUG   SenderThread:23040 [sender.py:send_request():396] send_request: stop_status
+2023-06-08 05:03:46,394 INFO    Thread-12 :23040 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/ubuntu/Stabekov-LM/improved-diffusion/wandb/run-20230608_050344-h30pmvf0/files/conda-environment.yaml
+2023-06-08 05:03:46,394 INFO    Thread-12 :23040 [dir_watcher.py:_on_file_created():272] file/dir created: /home/ubuntu/Stabekov-LM/improved-diffusion/wandb/run-20230608_050344-h30pmvf0/files/wandb-metadata.json
+2023-06-08 05:03:46,704 INFO    wandb-upload_0:23040 [upload_job.py:push():133] Uploaded file /tmp/tmpwm3l4jy7wandb/k092lf3u-wandb-metadata.json
+2023-06-08 05:03:46,806 DEBUG   SenderThread:23040 [sender.py:send():369] send: telemetry
+2023-06-08 05:03:46,814 DEBUG   SenderThread:23040 [sender.py:send():369] send: exit
+2023-06-08 05:03:46,815 INFO    SenderThread:23040 [sender.py:send_exit():574] handling exit code: 1
+2023-06-08 05:03:46,815 INFO    SenderThread:23040 [sender.py:send_exit():576] handling runtime: 2
+2023-06-08 05:03:46,815 INFO    SenderThread:23040 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-08 05:03:46,815 INFO    SenderThread:23040 [sender.py:send_exit():582] send defer
+2023-06-08 05:03:46,815 DEBUG   HandlerThread:23040 [handler.py:handle_request():144] handle_request: defer
+2023-06-08 05:03:46,815 INFO    HandlerThread:23040 [handler.py:handle_request_defer():170] handle defer: 0
+2023-06-08 05:03:46,816 DEBUG   SenderThread:23040 [sender.py:send_request():396] send_request: defer
+2023-06-08 05:03:46,816 INFO    SenderThread:23040 [sender.py:send_request_defer():598] handle sender defer: 0
+2023-06-08 05:03:46,816 INFO    SenderThread:23040 [sender.py:transition_state():602] send defer: 1
+2023-06-08 05:03:46,816 DEBUG   HandlerThread:23040 [handler.py:handle_request():144] handle_request: defer
+2023-06-08 05:03:46,816 INFO    HandlerThread:23040 [handler.py:handle_request_defer():170] handle defer: 1
+2023-06-08 05:03:46,816 DEBUG   SenderThread:23040 [sender.py:send_request():396] send_request: defer
+2023-06-08 05:03:46,816 INFO    SenderThread:23040 [sender.py:send_request_defer():598] handle sender defer: 1
+2023-06-08 05:03:46,816 INFO    SenderThread:23040 [sender.py:transition_state():602] send defer: 2
+2023-06-08 05:03:46,816 DEBUG   HandlerThread:23040 [handler.py:handle_request():144] handle_request: defer
+2023-06-08 05:03:46,816 INFO    HandlerThread:23040 [handler.py:handle_request_defer():170] handle defer: 2
+2023-06-08 05:03:46,816 INFO    HandlerThread:23040 [system_monitor.py:finish():190] Stopping system monitor
+2023-06-08 05:03:46,816 DEBUG   SystemMonitor:23040 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-06-08 05:03:46,817 INFO    HandlerThread:23040 [interfaces.py:finish():202] Joined cpu monitor
+2023-06-08 05:03:46,817 DEBUG   SystemMonitor:23040 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-06-08 05:03:46,817 INFO    HandlerThread:23040 [interfaces.py:finish():202] Joined disk monitor
+2023-06-08 05:03:46,817 DEBUG   SystemMonitor:23040 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-06-08 05:03:46,836 INFO    HandlerThread:23040 [interfaces.py:finish():202] Joined gpu monitor
+2023-06-08 05:03:46,836 INFO    HandlerThread:23040 [interfaces.py:finish():202] Joined memory monitor
+2023-06-08 05:03:46,836 INFO    HandlerThread:23040 [interfaces.py:finish():202] Joined network monitor
+2023-06-08 05:03:46,836 DEBUG   SenderThread:23040 [sender.py:send_request():396] send_request: defer
+2023-06-08 05:03:46,836 INFO    SenderThread:23040 [sender.py:send_request_defer():598] handle sender defer: 2
+2023-06-08 05:03:46,836 INFO    SenderThread:23040 [sender.py:transition_state():602] send defer: 3
+2023-06-08 05:03:46,836 DEBUG   SenderThread:23040 [sender.py:send():369] send: stats
+2023-06-08 05:03:46,837 DEBUG   HandlerThread:23040 [handler.py:handle_request():144] handle_request: defer
+2023-06-08 05:03:46,837 INFO    HandlerThread:23040 [handler.py:handle_request_defer():170] handle defer: 3
+2023-06-08 05:03:46,837 DEBUG   SenderThread:23040 [sender.py:send_request():396] send_request: defer
+2023-06-08 05:03:46,837 INFO    SenderThread:23040 [sender.py:send_request_defer():598] handle sender defer: 3
+2023-06-08 05:03:46,837 INFO    SenderThread:23040 [sender.py:transition_state():602] send defer: 4
+2023-06-08 05:03:46,837 DEBUG   HandlerThread:23040 [handler.py:handle_request():144] handle_request: defer
+2023-06-08 05:03:46,837 INFO    HandlerThread:23040 [handler.py:handle_request_defer():170] handle defer: 4
+2023-06-08 05:03:46,837 DEBUG   SenderThread:23040 [sender.py:send_request():396] send_request: defer
+2023-06-08 05:03:46,837 INFO    SenderThread:23040 [sender.py:send_request_defer():598] handle sender defer: 4
+2023-06-08 05:03:46,837 INFO    SenderThread:23040 [sender.py:transition_state():602] send defer: 5
+2023-06-08 05:03:46,837 DEBUG   HandlerThread:23040 [handler.py:handle_request():144] handle_request: defer
+2023-06-08 05:03:46,838 INFO    HandlerThread:23040 [handler.py:handle_request_defer():170] handle defer: 5
+2023-06-08 05:03:46,838 DEBUG   SenderThread:23040 [sender.py:send():369] send: summary
+2023-06-08 05:03:46,838 INFO    SenderThread:23040 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-08 05:03:46,838 DEBUG   SenderThread:23040 [sender.py:send_request():396] send_request: defer
+2023-06-08 05:03:46,838 INFO    SenderThread:23040 [sender.py:send_request_defer():598] handle sender defer: 5
+2023-06-08 05:03:46,838 INFO    SenderThread:23040 [sender.py:transition_state():602] send defer: 6
+2023-06-08 05:03:46,838 DEBUG   HandlerThread:23040 [handler.py:handle_request():144] handle_request: defer
+2023-06-08 05:03:46,838 INFO    HandlerThread:23040 [handler.py:handle_request_defer():170] handle defer: 6
+2023-06-08 05:03:46,839 DEBUG   SenderThread:23040 [sender.py:send_request():396] send_request: defer
+2023-06-08 05:03:46,839 INFO    SenderThread:23040 [sender.py:send_request_defer():598] handle sender defer: 6
+2023-06-08 05:03:46,842 DEBUG   HandlerThread:23040 [handler.py:handle_request():144] handle_request: status_report
+2023-06-08 05:03:46,964 INFO    SenderThread:23040 [sender.py:transition_state():602] send defer: 7
+2023-06-08 05:03:46,965 DEBUG   HandlerThread:23040 [handler.py:handle_request():144] handle_request: defer
+2023-06-08 05:03:46,965 INFO    HandlerThread:23040 [handler.py:handle_request_defer():170] handle defer: 7
+2023-06-08 05:03:46,965 DEBUG   SenderThread:23040 [sender.py:send_request():396] send_request: defer
+2023-06-08 05:03:46,965 INFO    SenderThread:23040 [sender.py:send_request_defer():598] handle sender defer: 7
+2023-06-08 05:03:47,394 INFO    Thread-12 :23040 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/ubuntu/Stabekov-LM/improved-diffusion/wandb/run-20230608_050344-h30pmvf0/files/config.yaml
+2023-06-08 05:03:47,394 INFO    Thread-12 :23040 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/ubuntu/Stabekov-LM/improved-diffusion/wandb/run-20230608_050344-h30pmvf0/files/wandb-summary.json
+2023-06-08 05:03:47,395 INFO    Thread-12 :23040 [dir_watcher.py:_on_file_created():272] file/dir created: /home/ubuntu/Stabekov-LM/improved-diffusion/wandb/run-20230608_050344-h30pmvf0/files/output.log
+2023-06-08 05:03:47,815 DEBUG   HandlerThread:23040 [handler.py:handle_request():144] handle_request: poll_exit
+2023-06-08 05:03:48,817 INFO    SenderThread:23040 [sender.py:transition_state():602] send defer: 8
+2023-06-08 05:03:48,818 DEBUG   SenderThread:23040 [sender.py:send_request():396] send_request: poll_exit
+2023-06-08 05:03:48,818 DEBUG   HandlerThread:23040 [handler.py:handle_request():144] handle_request: defer
+2023-06-08 05:03:48,818 INFO    HandlerThread:23040 [handler.py:handle_request_defer():170] handle defer: 8
+2023-06-08 05:03:48,818 DEBUG   SenderThread:23040 [sender.py:send_request():396] send_request: defer
+2023-06-08 05:03:48,818 INFO    SenderThread:23040 [sender.py:send_request_defer():598] handle sender defer: 8
+2023-06-08 05:03:48,818 INFO    SenderThread:23040 [job_builder.py:build():232] Attempting to build job artifact
+2023-06-08 05:03:48,819 INFO    SenderThread:23040 [job_builder.py:build():256] is repo sourced job
+2023-06-08 05:03:48,821 INFO    SenderThread:23040 [job_builder.py:build():297] adding wandb-job metadata file
+2023-06-08 05:03:48,825 INFO    SenderThread:23040 [sender.py:transition_state():602] send defer: 9
+2023-06-08 05:03:48,825 DEBUG   HandlerThread:23040 [handler.py:handle_request():144] handle_request: defer
+2023-06-08 05:03:48,825 INFO    HandlerThread:23040 [handler.py:handle_request_defer():170] handle defer: 9
+2023-06-08 05:03:48,826 DEBUG   SenderThread:23040 [sender.py:send():369] send: artifact
+2023-06-08 05:03:49,250 INFO    SenderThread:23040 [sender.py:send_artifact():1450] sent artifact job-https___github.com_vatsj_Stabekov-LM.git_improved-diffusion_scripts_train.py - {'id': 'QXJ0aWZhY3Q6NDgxMDM4OTM1', 'digest': '3a614de5dd7f26546bf21f8d51355853', 'state': 'COMMITTED', 'aliases': [{'artifactCollectionName': 'job-https___github.com_vatsj_Stabekov-LM.git_improved-diffusion_scripts_train.py', 'alias': 'latest'}, {'artifactCollectionName': 'job-https___github.com_vatsj_Stabekov-LM.git_improved-diffusion_scripts_train.py', 'alias': 'v0'}], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjc1Mzg3NDU2', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NDgxMDM4OTM1', 'versionIndex': 0}}, 'version': 'v0'}
+2023-06-08 05:03:49,250 DEBUG   SenderThread:23040 [sender.py:send_request():396] send_request: defer
+2023-06-08 05:03:49,250 INFO    SenderThread:23040 [sender.py:send_request_defer():598] handle sender defer: 9
+2023-06-08 05:03:49,250 INFO    SenderThread:23040 [dir_watcher.py:finish():359] shutting down directory watcher
+2023-06-08 05:03:49,395 INFO    Thread-12 :23040 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/ubuntu/Stabekov-LM/improved-diffusion/wandb/run-20230608_050344-h30pmvf0/files/output.log
+2023-06-08 05:03:49,395 INFO    SenderThread:23040 [dir_watcher.py:finish():389] scan: /home/ubuntu/Stabekov-LM/improved-diffusion/wandb/run-20230608_050344-h30pmvf0/files
+2023-06-08 05:03:49,395 INFO    SenderThread:23040 [dir_watcher.py:finish():403] scan save: /home/ubuntu/Stabekov-LM/improved-diffusion/wandb/run-20230608_050344-h30pmvf0/files/wandb-metadata.json wandb-metadata.json
+2023-06-08 05:03:49,395 INFO    SenderThread:23040 [dir_watcher.py:finish():403] scan save: /home/ubuntu/Stabekov-LM/improved-diffusion/wandb/run-20230608_050344-h30pmvf0/files/requirements.txt requirements.txt
+2023-06-08 05:03:49,395 INFO    SenderThread:23040 [dir_watcher.py:finish():403] scan save: /home/ubuntu/Stabekov-LM/improved-diffusion/wandb/run-20230608_050344-h30pmvf0/files/conda-environment.yaml conda-environment.yaml
+2023-06-08 05:03:49,398 INFO    SenderThread:23040 [dir_watcher.py:finish():403] scan save: /home/ubuntu/Stabekov-LM/improved-diffusion/wandb/run-20230608_050344-h30pmvf0/files/config.yaml config.yaml
+2023-06-08 05:03:49,398 INFO    SenderThread:23040 [dir_watcher.py:finish():403] scan save: /home/ubuntu/Stabekov-LM/improved-diffusion/wandb/run-20230608_050344-h30pmvf0/files/output.log output.log
+2023-06-08 05:03:49,403 INFO    SenderThread:23040 [dir_watcher.py:finish():403] scan save: /home/ubuntu/Stabekov-LM/improved-diffusion/wandb/run-20230608_050344-h30pmvf0/files/wandb-summary.json wandb-summary.json
+2023-06-08 05:03:49,403 INFO    SenderThread:23040 [sender.py:transition_state():602] send defer: 10
+2023-06-08 05:03:49,406 DEBUG   HandlerThread:23040 [handler.py:handle_request():144] handle_request: defer
+2023-06-08 05:03:49,406 INFO    HandlerThread:23040 [handler.py:handle_request_defer():170] handle defer: 10
+2023-06-08 05:03:49,408 DEBUG   SenderThread:23040 [sender.py:send_request():396] send_request: defer
+2023-06-08 05:03:49,408 INFO    SenderThread:23040 [sender.py:send_request_defer():598] handle sender defer: 10
+2023-06-08 05:03:49,408 INFO    SenderThread:23040 [file_pusher.py:finish():159] shutting down file pusher
+2023-06-08 05:03:49,724 INFO    wandb-upload_0:23040 [upload_job.py:push():133] Uploaded file /home/ubuntu/Stabekov-LM/improved-diffusion/wandb/run-20230608_050344-h30pmvf0/files/requirements.txt
+2023-06-08 05:03:49,738 INFO    wandb-upload_1:23040 [upload_job.py:push():133] Uploaded file /home/ubuntu/Stabekov-LM/improved-diffusion/wandb/run-20230608_050344-h30pmvf0/files/conda-environment.yaml
+2023-06-08 05:03:49,803 INFO    wandb-upload_2:23040 [upload_job.py:push():133] Uploaded file /home/ubuntu/Stabekov-LM/improved-diffusion/wandb/run-20230608_050344-h30pmvf0/files/config.yaml
+2023-06-08 05:03:49,811 INFO    wandb-upload_3:23040 [upload_job.py:push():133] Uploaded file /home/ubuntu/Stabekov-LM/improved-diffusion/wandb/run-20230608_050344-h30pmvf0/files/output.log
+2023-06-08 05:03:49,830 INFO    wandb-upload_4:23040 [upload_job.py:push():133] Uploaded file /home/ubuntu/Stabekov-LM/improved-diffusion/wandb/run-20230608_050344-h30pmvf0/files/wandb-summary.json
+2023-06-08 05:03:50,030 INFO    Thread-11 :23040 [sender.py:transition_state():602] send defer: 11
+2023-06-08 05:03:50,031 DEBUG   HandlerThread:23040 [handler.py:handle_request():144] handle_request: defer
+2023-06-08 05:03:50,031 INFO    HandlerThread:23040 [handler.py:handle_request_defer():170] handle defer: 11
+2023-06-08 05:03:50,031 DEBUG   SenderThread:23040 [sender.py:send_request():396] send_request: defer
+2023-06-08 05:03:50,031 INFO    SenderThread:23040 [sender.py:send_request_defer():598] handle sender defer: 11
+2023-06-08 05:03:50,031 INFO    SenderThread:23040 [file_pusher.py:join():164] waiting for file pusher
+2023-06-08 05:03:50,031 INFO    SenderThread:23040 [sender.py:transition_state():602] send defer: 12
+2023-06-08 05:03:50,031 DEBUG   HandlerThread:23040 [handler.py:handle_request():144] handle_request: defer
+2023-06-08 05:03:50,031 INFO    HandlerThread:23040 [handler.py:handle_request_defer():170] handle defer: 12
+2023-06-08 05:03:50,032 DEBUG   SenderThread:23040 [sender.py:send_request():396] send_request: defer
+2023-06-08 05:03:50,032 INFO    SenderThread:23040 [sender.py:send_request_defer():598] handle sender defer: 12
+2023-06-08 05:03:50,353 INFO    SenderThread:23040 [sender.py:transition_state():602] send defer: 13
+2023-06-08 05:03:50,353 DEBUG   HandlerThread:23040 [handler.py:handle_request():144] handle_request: defer
+2023-06-08 05:03:50,353 INFO    HandlerThread:23040 [handler.py:handle_request_defer():170] handle defer: 13
+2023-06-08 05:03:50,354 DEBUG   SenderThread:23040 [sender.py:send_request():396] send_request: defer
+2023-06-08 05:03:50,354 INFO    SenderThread:23040 [sender.py:send_request_defer():598] handle sender defer: 13
+2023-06-08 05:03:50,354 INFO    SenderThread:23040 [sender.py:transition_state():602] send defer: 14
+2023-06-08 05:03:50,354 DEBUG   HandlerThread:23040 [handler.py:handle_request():144] handle_request: defer
+2023-06-08 05:03:50,354 DEBUG   SenderThread:23040 [sender.py:send():369] send: final
+2023-06-08 05:03:50,354 INFO    HandlerThread:23040 [handler.py:handle_request_defer():170] handle defer: 14
+2023-06-08 05:03:50,354 DEBUG   SenderThread:23040 [sender.py:send():369] send: footer
+2023-06-08 05:03:50,354 DEBUG   SenderThread:23040 [sender.py:send_request():396] send_request: defer
+2023-06-08 05:03:50,354 INFO    SenderThread:23040 [sender.py:send_request_defer():598] handle sender defer: 14
+2023-06-08 05:03:50,355 DEBUG   HandlerThread:23040 [handler.py:handle_request():144] handle_request: poll_exit
+2023-06-08 05:03:50,355 DEBUG   SenderThread:23040 [sender.py:send_request():396] send_request: poll_exit
+2023-06-08 05:03:50,355 DEBUG   HandlerThread:23040 [handler.py:handle_request():144] handle_request: server_info
+2023-06-08 05:03:50,356 DEBUG   SenderThread:23040 [sender.py:send_request():396] send_request: server_info
+2023-06-08 05:03:50,357 DEBUG   HandlerThread:23040 [handler.py:handle_request():144] handle_request: get_summary
+2023-06-08 05:03:50,358 DEBUG   HandlerThread:23040 [handler.py:handle_request():144] handle_request: sampled_history
+2023-06-08 05:03:50,420 INFO    MainThread:23040 [wandb_run.py:_footer_history_summary_info():3467] rendering history
+2023-06-08 05:03:50,420 INFO    MainThread:23040 [wandb_run.py:_footer_history_summary_info():3499] rendering summary
+2023-06-08 05:03:50,420 INFO    MainThread:23040 [wandb_run.py:_footer_sync_info():3426] logging synced files
+2023-06-08 05:03:50,421 DEBUG   HandlerThread:23040 [handler.py:handle_request():144] handle_request: shutdown
+2023-06-08 05:03:50,421 INFO    HandlerThread:23040 [handler.py:finish():854] shutting down handler
+2023-06-08 05:03:51,356 INFO    WriterThread:23040 [datastore.py:close():298] close: /home/ubuntu/Stabekov-LM/improved-diffusion/wandb/run-20230608_050344-h30pmvf0/run-h30pmvf0.wandb
+2023-06-08 05:03:51,420 INFO    SenderThread:23040 [sender.py:finish():1526] shutting down sender
+2023-06-08 05:03:51,420 INFO    SenderThread:23040 [file_pusher.py:finish():159] shutting down file pusher
+2023-06-08 05:03:51,420 INFO    SenderThread:23040 [file_pusher.py:join():164] waiting for file pusher

@@ -1,0 +1,17 @@
+2023-06-08 04:25:25,134 INFO    StreamThr :21992 [internal.py:wandb_internal():86] W&B internal server running at pid: 21992, started at: 2023-06-08 04:25:25.133800
+2023-06-08 04:25:25,135 DEBUG   HandlerThread:21992 [handler.py:handle_request():144] handle_request: status
+2023-06-08 04:25:25,137 INFO    WriterThread:21992 [datastore.py:open_for_write():85] open: /home/ubuntu/Stabekov-LM/improved-diffusion/wandb/run-20230608_042525-g6q9ubd3/run-g6q9ubd3.wandb
+2023-06-08 04:25:25,138 DEBUG   SenderThread:21992 [sender.py:send():369] send: header
+2023-06-08 04:25:25,156 DEBUG   SenderThread:21992 [sender.py:send():369] send: run
+2023-06-08 04:25:25,342 DEBUG   HandlerThread:21992 [handler.py:handle_request():144] handle_request: shutdown
+2023-06-08 04:25:25,342 INFO    HandlerThread:21992 [handler.py:finish():854] shutting down handler
+2023-06-08 04:25:25,436 INFO    SenderThread:21992 [dir_watcher.py:__init__():211] watching files in: /home/ubuntu/Stabekov-LM/improved-diffusion/wandb/run-20230608_042525-g6q9ubd3/files
+2023-06-08 04:25:25,436 INFO    SenderThread:21992 [sender.py:_start_run_threads():1100] run started: g6q9ubd3 with start time 1686198325.133476
+2023-06-08 04:25:25,436 INFO    SenderThread:21992 [sender.py:finish():1526] shutting down sender
+2023-06-08 04:25:25,436 INFO    SenderThread:21992 [dir_watcher.py:finish():359] shutting down directory watcher
+2023-06-08 04:25:26,157 INFO    WriterThread:21992 [datastore.py:close():298] close: /home/ubuntu/Stabekov-LM/improved-diffusion/wandb/run-20230608_042525-g6q9ubd3/run-g6q9ubd3.wandb
+2023-06-08 04:25:26,436 INFO    SenderThread:21992 [dir_watcher.py:finish():389] scan: /home/ubuntu/Stabekov-LM/improved-diffusion/wandb/run-20230608_042525-g6q9ubd3/files
+2023-06-08 04:25:26,437 INFO    SenderThread:21992 [dir_watcher.py:finish():403] scan save: /home/ubuntu/Stabekov-LM/improved-diffusion/wandb/run-20230608_042525-g6q9ubd3/files/config.yaml config.yaml
+2023-06-08 04:25:26,437 INFO    SenderThread:21992 [file_pusher.py:finish():159] shutting down file pusher
+2023-06-08 04:25:26,439 INFO    SenderThread:21992 [file_pusher.py:join():164] waiting for file pusher
+2023-06-08 04:25:26,805 INFO    wandb-upload_0:21992 [upload_job.py:push():133] Uploaded file /home/ubuntu/Stabekov-LM/improved-diffusion/wandb/run-20230608_042525-g6q9ubd3/files/config.yaml

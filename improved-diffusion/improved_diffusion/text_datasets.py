@@ -17,7 +17,7 @@ from itertools import chain
 
 def load_data_text(
     *, data_dir, batch_size, image_size, class_cond=False, deterministic=False, data_args=None,
-        task_mode='roc', model=None, padding_mode='block', split='train', load_vocab=None,
+        task_mode='bert', model=None, padding_mode='block', split='train', load_vocab=None,
 ):
     """
     For a dataset, create a generator over (images, kwargs) pairs.
@@ -36,13 +36,15 @@ def load_data_text(
     :param deterministic: if True, yield results in a deterministic order.
     """
     print('hello loading text data. ')
-
+    print(model)
+    print(data_args)
+    print('**task_mode**', task_mode)
     if data_args.experiment.startswith('random') and model is None:
         model = None
     elif data_args.experiment.startswith('random') and model is not None:
         print('loading initialized random embeddings. ')
 
-    if task_mode == 'roc' or task_mode == 'roc-aug' :
+    if task_mode == 'roc' or task_mode == 'roc-aug' or task_mode == 'bert':
         training_data, model = get_corpus_rocstory(data_args, model, image_size,
                                             padding_mode=padding_mode, split=split,
                                             load_vocab=load_vocab)
@@ -78,7 +80,7 @@ def load_data_text(
         training_data, model = get_corpus_book(data_args, tokenizer, model, image_size,
                                               padding_mode=padding_mode, split=split,)
 
-    if data_args.modality in ['roc-aug', 'roc', 'book', 'yelp', 'commonGen', 'commonGen-aug'] and data_args.cache_mode=='no':
+    if data_args.modality in ['bert','roc-aug', 'roc', 'book', 'yelp', 'commonGen', 'commonGen-aug'] and data_args.cache_mode=='no':
         dataset = TextDataset_NoCache(
             training_data,
             image_size,
@@ -120,6 +122,7 @@ def helper_tokenize_encode_cond(sentence_lst, vocab_dict, model, seqlen, data_ar
     group_lst = defaultdict(list)
     with torch.no_grad():
         for (src_ids, input_ids) in sentence_lst:
+            print(src_ids, input_ids)
             tokenized_ = [vocab_dict.get(x, vocab_dict['UNK']) for x in input_ids]
             tokenized_src = [vocab_dict.get(x, vocab_dict['UNK']) for x in src_ids]
             input_ids = [0] + tokenized_ + [1]
@@ -241,8 +244,13 @@ def helper_tokenize_encode(sentence_lst, vocab_dict, model, seqlen, data_args, p
     result_train_lst = []
     group_lst = defaultdict(list)
     with torch.no_grad():
+        tokenizer = AutoTokenizer.from_pretrained('bert-base-uncased')
+        print('here there everywhere')
         for input_ids in sentence_lst:
-            tokenized_ = [vocab_dict.get(x, vocab_dict['UNK']) for x in input_ids]
+            tokenized_ = []
+            for x in input_ids:
+                for tok in x:
+                    tokenized_.append(tokenizer(tok)['input_ids'][1])
             input_ids = [0] + tokenized_ + [1]
             group_lst['word_ids'].append(input_ids)
         print(group_lst['word_ids'][:2])
@@ -261,14 +269,16 @@ def helper_tokenize_encode(sentence_lst, vocab_dict, model, seqlen, data_args, p
         elif padding_mode == 'pad':
             print('padding mode is pad')
             max_length = seqlen
-            group_lst['word_ids'] = _collate_batch_helper(group_lst['word_ids'], vocab_dict['PAD'], max_length)
+            print(tokenizer('[PAD]')['input_ids'][1])
+            group_lst['word_ids'] = _collate_batch_helper(group_lst['word_ids'], tokenizer('[PAD]')['input_ids'][1], max_length)
 
         for input_ids in group_lst['word_ids']:
-            if data_args.experiment.startswith('random'):
+            if False: #data_args.experiment.startswith('random'):
                 hidden_state = model(torch.tensor(input_ids))
-            elif data_args.experiment.startswith('bert'):
+            elif True:# data_args.experiment.startswith('bert'):
+                data_args.experiment.startswith('bert')
                 print('bert1')
-                input_ids2 = torch.tensor(input_ids).to(model.device)
+                input_ids2 = torch.tensor(input_ids).unsqueeze(0).to(model.device)
                 hidden_state = model.bert(input_ids2)[0]
             elif data_args.experiment == 'gpt2_pre_compress':
                 input_ids2 = torch.tensor(input_ids).to(model.device)
@@ -317,11 +327,15 @@ def get_corpus_rocstory(data_args, model, image_size, padding_mode='block',
     import csv, torch, json
     from spacy.lang.en import English
 
-    if data_args.experiment_mode == 'lm':
-        if data_args.modality == 'roc':
+    print("IN GET CORPUS ROCSTORY POG POG POG", data_args)
+    print(model)
+
+    if True:#data_args.experiment_mode == 'lm':
+        if True:#data_args.modality == 'roc' or data_args.modality == 'bert':
             print('loading dataset from ROCStory')
             nlp = English()
             tokenizer = nlp.tokenizer
+            tokenizer = AutoTokenizer.from_pretrained('bert-base-uncased')
             sentence_lst = []
             print(f'loading from {data_args.roc_train}')
             if split == 'train':
@@ -332,11 +346,11 @@ def get_corpus_rocstory(data_args, model, image_size, padding_mode='block',
                 path = f'{data_args.roc_train}/roc_valid.json'
             else:
                 assert False, "invalid split for ROC dataset"
-
+            
             with open(path, 'r') as roc_reader:
                 for row in roc_reader:
                     sentences = json.loads(row)[0].strip()
-                    word_lst = [x.text for x in tokenizer(sentences)]
+                    word_lst = [tokenizer.tokenize(sentences)]
                     sentence_lst.append(word_lst)
 
             # with open(data_args.roc_train, 'r') as csvfile:

@@ -1,0 +1,11 @@
+creating data loader...
+load data **************************************************
+bert loading
+Traceback (most recent call last):
+  File "scripts/train.py", line 219, in <module>
+    main()
+  File "scripts/train.py", line 98, in main
+    model22, _ = load_models(args.modality, 'bert', args.model_name_or_path, args.in_channel,
+  File "/home/ubuntu/Stabekov-LM/improved-diffusion/improved_diffusion/rounding.py", line 17, in load_models
+    config = AutoConfig.from_pretrained(MODEL_NAME)
+UnboundLocalError: local variable 'MODEL_NAME' referenced before assignment

@@ -14,13 +14,13 @@ def load_models(modality, mode, model_name_or_path, emb_dim, file, extra_args=No
     if mode == 'bert':
         print('bert loading')
         # config
+        MODEL_NAME = "prajjwal1/bert-tiny"
         config = AutoConfig.from_pretrained(MODEL_NAME)
         config.output_hidden_states = True
 
         # sets config in model
-        MODEL_NAME = "prajjwal1/bert-tiny"
         model = BertForMaskedLM.from_pretrained(MODEL_NAME, config=config)
-        model = model.bert
+        #model = model.bert # naw we want access to cls bruv
 
         tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 
