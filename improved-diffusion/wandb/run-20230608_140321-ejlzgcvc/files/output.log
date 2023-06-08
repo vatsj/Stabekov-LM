@@ -1,0 +1,13 @@
+creating data loader...
+load data **************************************************
+Downloading: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 28.0/28.0 [00:00<00:00, 30.7kB/s]
+Downloading: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 226k/226k [00:00<00:00, 1.71MB/s]
+Downloading: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 455k/455k [00:00<00:00, 1.81MB/s]
+Traceback (most recent call last):
+  File "scripts/train.py", line 219, in <module>
+    main()
+  File "scripts/train.py", line 98, in main
+    model22, _ = load_models(args.modality, 'bert', args.model_name_or_path, args.in_channel,
+  File "/home/jstav/Documents/stanford/Spring 2023/Diffusion-LM/improved-diffusion/improved_diffusion/rounding.py", line 49, in load_models
+    return model, tokenizer
+UnboundLocalError: local variable 'model' referenced before assignment
