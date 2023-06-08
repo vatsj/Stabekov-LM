@@ -272,7 +272,9 @@ def helper_tokenize_encode(sentence_lst, vocab_dict, model, seqlen, data_args, p
             print(tokenizer('[PAD]')['input_ids'][1])
             group_lst['word_ids'] = _collate_batch_helper(group_lst['word_ids'], tokenizer('[PAD]')['input_ids'][1], max_length)
 
-        for input_ids in group_lst['word_ids']:
+        # tracks progress w tqdm
+        import tqdm
+        for input_ids in tqdm(group_lst['word_ids']):
             if False: #data_args.experiment.startswith('random'):
                 hidden_state = model(torch.tensor(input_ids))
             elif True:# data_args.experiment.startswith('bert'):

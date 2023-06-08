@@ -11,6 +11,7 @@ def load_models(modality, mode, model_name_or_path, emb_dim, file, extra_args=No
 
     # bert!
 
+    print("mode: ", mode)
     if mode == 'bert':
         print('bert loading')
         # config

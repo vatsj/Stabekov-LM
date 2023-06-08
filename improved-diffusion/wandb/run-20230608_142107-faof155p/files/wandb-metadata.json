@@ -1,0 +1,136 @@
+{
+    "os": "Linux-5.15.0-73-generic-x86_64-with-glibc2.17",
+    "python": "3.8.16",
+    "heartbeatAt": "2023-06-08T21:21:07.547075",
+    "startedAt": "2023-06-08T21:21:07.081356",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--checkpoint_path",
+        "diffusion_models/diff_roc_pad_rand128_transformer_lr0.0001_0.0_2000_sqrt_Lsimple_h128_s2_d0.1_sd101_xstart_e2e",
+        "--model_arch",
+        "transformer",
+        "--modality",
+        "roc",
+        "--save_interval",
+        "50000",
+        "--lr",
+        "0.0001",
+        "--batch_size",
+        "64",
+        "--diffusion_steps",
+        "2000",
+        "--noise_schedule",
+        "sqrt",
+        "--use_kl",
+        "False",
+        "--learn_sigma",
+        "False",
+        "--image_size",
+        "8",
+        "--num_channels",
+        "128",
+        "--seed",
+        "101",
+        "--dropout",
+        "0.1",
+        "--in_channel",
+        "128",
+        "--out_channel",
+        "128",
+        "--padding_mode",
+        "pad",
+        "--experiment",
+        "random",
+        "--lr_anneal_steps",
+        "400000",
+        "--weight_decay",
+        "0.0",
+        "--num_res_blocks",
+        "2",
+        "--predict_xstart",
+        "True",
+        "--training_mode",
+        "e2e",
+        "--vocab_size",
+        "11043",
+        "--roc_train",
+        "../datasets/ROCstory"
+    ],
+    "state": "running",
+    "program": "scripts/train.py",
+    "codePath": "improved-diffusion/scripts/train.py",
+    "git": {
+        "remote": "https://github.com/vatsj/Stabekov-LM",
+        "commit": "5456eae0dc54c043890976b98aeefaa240855919"
+    },
+    "email": "jstav@stanford.edu",
+    "root": "/home/jstav/Documents/stanford/Spring 2023/Stabekov-LM",
+    "host": "jstav-HP-ENVY-Laptop-13-aq0xxx",
+    "username": "jstav",
+    "executable": "/home/jstav/miniconda3/envs/golden/bin/python",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 1882.770875,
+        "min": 400.0,
+        "max": 4600.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2000.0,
+            "min": 400.0,
+            "max": 4600.0
+        },
+        {
+            "current": 1522.933,
+            "min": 400.0,
+            "max": 4600.0
+        },
+        {
+            "current": 2000.0,
+            "min": 400.0,
+            "max": 4600.0
+        },
+        {
+            "current": 2000.0,
+            "min": 400.0,
+            "max": 4600.0
+        },
+        {
+            "current": 2000.0,
+            "min": 400.0,
+            "max": 4600.0
+        },
+        {
+            "current": 2000.0,
+            "min": 400.0,
+            "max": 4600.0
+        },
+        {
+            "current": 2000.0,
+            "min": 400.0,
+            "max": 4600.0
+        },
+        {
+            "current": 2000.0,
+            "min": 400.0,
+            "max": 4600.0
+        }
+    ],
+    "disk": {
+        "total": 467.8895797729492,
+        "used": 103.5876693725586
+    },
+    "gpu": "NVIDIA GeForce MX250",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce MX250",
+            "memory_total": 2147483648
+        }
+    ],
+    "memory": {
+        "total": 15.36196517944336
+    }
+}
