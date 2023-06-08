@@ -273,13 +273,19 @@ def helper_tokenize_encode(sentence_lst, vocab_dict, model, seqlen, data_args, p
             group_lst['word_ids'] = _collate_batch_helper(group_lst['word_ids'], tokenizer('[PAD]')['input_ids'][1], max_length)
 
         # tracks progress w tqdm
-        import tqdm
-        for input_ids in tqdm(group_lst['word_ids']):
+        count = 0
+        for input_ids in group_lst['word_ids']:
             if False: #data_args.experiment.startswith('random'):
                 hidden_state = model(torch.tensor(input_ids))
             elif True:# data_args.experiment.startswith('bert'):
                 data_args.experiment.startswith('bert')
-                print('bert1')
+                
+                # output
+                # print('bert1')
+                count += 1
+                if count % 1000 == 0:
+                    print(count, "out of", len(group_lst['word_ids']))
+
                 input_ids2 = torch.tensor(input_ids).unsqueeze(0).to(model.device)
                 hidden_state = model.bert(input_ids2)[0]
             elif data_args.experiment == 'gpt2_pre_compress':
